@@ -18,15 +18,17 @@ p {
 }
 
 .moveable {
+  
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 40%;
 }
 .moveable li {
-  margin: 10px;
+  margin: 1px;
   padding: 15px;
   border: 1px solid #dfdfdf;
   background: #333333;
+
 }
 
 /* (B) DRAG-AND-DROP HINT */
@@ -40,5 +42,14 @@ p {
   background:  #7c6767;
 }
 
+.final_button {
+  background-color: aquamarine; 
+  display: inline-block;
+  font-size: 32px;
+  display: flex;
+  justify-content: center; 
+}
 
-
+.bottom_container {
+text-align:center;
+}
