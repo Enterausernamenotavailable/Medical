@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Questionnaire</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script> 
+    <link href="./public/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="public/myD3app.js" defer></script>
+  </head>
+  
+  <body>
+
+    <div class="top_container_div">
+      <h1>Please look at the illustration and folow further instructions.</h1>
+      <div id="main_modality_container_div">
+        <img class="img" src="images/illustrationdetailed.png" alt="illustration">
+      </div>
+    </div>
+
+    <div class="instructions_div">
+      <h2>Please answer the following questions</h2> 
+    </div>
+
+    
+    <div class="question">
+      <p>1. In which part of the enzyme do the molecules fuse into ATP?</p>
+      <input type="text1" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>2. Which two molecules react to react to form the ATP molecule?</p>
+      <input type="text2" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>3. Which part of the cell does the ATP synthesis take place in?</p>
+      <input type="text3" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>4. What role do the H+ molecules play in the ATP synthesis?</p>
+      <input type="text4" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>5. How do the H+ molecules cross the membrane?</p>
+      <input type="text5" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>6. Which side of the membrane does the ATP synthesis reaction take place?</p>
+      <input type="text6" placeholder="Enter your answer here:">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>7. Put the following steps of the ATP synthesis process in the correct order by dragging and dropping.</p>
+      <ul id="items-list" class="moveable">
+        <li class="question7item">ATP release</li>
+        <li class="question7item">H+ motor activation</li>
+        <li class="question7item">ADP and PO4 reaction</li>
+        <li class="question7item">H+ crossing membrane</li>
+    </ul>
+    </div>
+
+    <div class="question">
+      <p>8. Choose the options that best describe the representation of the ATP synthesis process. You can choose several options:</p>
+      <br>
+      <input type="checkbox" /> simplistic
+      <br>
+      <input type="checkbox" /> clear
+      <br>
+      <input type="checkbox" /> detailed
+      <br>
+      <input type="checkbox" /> excessive
+      <br>
+      <input type="checkbox" /> informative
+      <br>
+      <input type="checkbox" /> confusing
+      <br>
+      <input type="checkbox" /> pretty
+      <br>
+      <input type="checkbox" /> misleading
+      <br>
+      <input type="checkbox" /> distracting
+      <br>
+      <input type="checkbox" /> easy to read
+      <br>
+      <input type="checkbox" /> inaccurate
+      <br>
+      <input type="checkbox" /> precise 
+      <br>
+      <input type="checkbox" /> accurate
+      <br>
+      <input type="checkbox" /> visually unappealing
+      <br>
+      <input type="text6" placeholder="Other: please specify">
+      <br>
+      <button type="button">Submit</button>
+    </div>
+
+    <div class="question">
+      <p>9. In your own words, write at least three things that you liked the most about the representations:</p>
+      <input type="text9" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>10. In yout own words, write at least three things that you did not like about the representation:</p>
+      <input type="text10" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>11. How well did the represenattion communicated the order of events in the ATP synthesis process?</p>
+      <input type="text11" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>12. How well did you understand the mocements happening within the ATP synthesis process?</p>
+      <input type="text12" placeholder="Enter your answer here">
+      <br>
+      <button type="button">Submit</button> 
+    </div>
+
+    <div class="question">
+      <p>13. How many tmes did you revisit the representation to answer the questions?</p>
+      <form>
+        <input type="radio" id="html" name="never" value="HTML">
+        <label for="html">never</label><br>
+        <input type="radio" id="html" name="never" value="HTML">
+        <label for="html">1-5 times</label><br>
+        <input type="radio" id="html" name="never" value="HTML">
+        <label for="html">6- 10 times</label><br>
+        <input type="radio" id="html" name="never" value="HTML">
+        <label for="html">more than 10 times</label><br>
+      </form>
+    </div>
+
+    <div class="bottom_container">
+      <br>
+       <div class="final_button">
+         <br>
+          <button type="button">Submit</button> 
+        </div>
+      <p>Thank you very much for your participation. Please do not discuss the contents of the experiment with other people as it may potentially influence the final results. If you have any questions or would be interested in the results of the experiment, please contact xpokojna@muni.fi.cz</p>
+
+    </div>
+
+    
+
+  </body>

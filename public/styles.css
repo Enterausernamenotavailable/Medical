@@ -53,3 +53,25 @@ p {
 .bottom_container {
 text-align:center;
 }
+
+
+a:link, a:visited {
+  background-color: aquamarine;
+  color: black;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: grey;
+}
+</style>
+</head>
+<body>
+
+<h2>Link Button</h2>
+
+<p>A link styled as a button:</p>
+<a href="default.asp" target="_blank">This is a link</a>
