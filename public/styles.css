@@ -13,12 +13,13 @@ p {
 #main_modality_container_div {
   width: 100%;
 }
+
 .img {
   width: 100%;
 }
 
 .moveable {
-  
+
   list-style: none;
   padding: 0;
   margin: 0 0%;
@@ -42,47 +43,38 @@ p {
   background:  #7c6767;
 }
 
-.final_button {
-  background-color: aquamarine; 
-  display: inline-block;
-  font-size: 32px;
-  display: flex;
-  justify-content: center; 
-}
-
-.bottom_container {
-text-align:center;
-}
-
-.w3-teal, .w3-hover-teal:hover {
-  color: #fff!important;
-  background-color: #009688!important;
-}
-.w3-block {
-  display: block;
-  width: 100%;
-}
-
-
-
-
+/* /buttons first page */
 a:link, a:visited {
-  background-color: aquamarine;
-  color: black;
+  background-color: #009688;
+  color: #fff;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
+  
   display: inline-block;
 }
 
 a:hover, a:active {
   background-color: grey;
 }
-</style>
-</head>
-<body>
 
-<h2>Link Button</h2>
 
 <p>A link styled as a button:</p>
 <a href="default.asp" target="_blank">This is a link</a>
+
+.bottom {
+  text-align: center;
+  }
+
+.bottom_container {
+  text-align: center;
+  }
+  
+  /* LAst submit all button */
+.w3-teal, .w3-hover-teal:hover {
+    color: #fff;
+    background-color: #009688;
+    display: inline-block;
+    font-size: 32px;
+    width: 100%;
+  }
