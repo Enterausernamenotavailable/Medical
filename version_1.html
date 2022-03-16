@@ -9,7 +9,7 @@
     <script type="text/javascript" src="public/myD3app.js" defer></script>
   </head>
   
-  <body>
+  <body onload="fillAnswers();">
 
     <div class="top_container_div">
       <h1>Please carefully look at the representation and study the following biological process.</h1>
@@ -155,11 +155,13 @@
       </form>
     </div>
 <hr>
+<input type="text" id="previous_answers" name="answers" value="" hidden>
+
     <div class="bottom_container">
       <br>
        <div class="final_button">
          <br>
-         <button class="w3-button w3-block w3-teal">Submit all</button>
+         <button class="w3-button w3-block w3-teal" onclick="validateFormPAge2()">Submit all</button>
         </div>
       <p>Thank you very much for your participation. Please <b>do not discuss</b> the contents of the survey 
         with other people as it may influence the final results. If you have any questions or would be 
