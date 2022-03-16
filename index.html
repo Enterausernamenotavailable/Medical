@@ -27,8 +27,7 @@
     <div class="questionnaire">
         <p>1. What is your nationality?</p>
 
-          <label for="nationality"></label>
-          <input type="text" id="nationality" name="nationality" required>
+          <input type="text" id="nationality" name="nationality" placeholder="Enter your answer here" required>
           
    
         
@@ -39,15 +38,22 @@
     <div class="questionnaire">
         <p>2. What is your gender?</p>
   
-            <input type="radio" id="gender_female" name="never" value="Female" required>Female<br>
-            <input type="radio" id="gender_male" name="never" value="Male" required>Male<br>
-            <input type="radio" id="html" name="never" value="HTML" required>
-            <label for="html">Non- binary</label><br>
-            <input type="radio" id="html" name="never" value="HTML" required>
-            <label for="html">Prefer not to say</label><br>
-            <input type="radio" id="html" name="never" value="HTML" required>
-            <label for="html">Prefer to self-identify</label>
-            <input type="text11" placeholder="Enter your answer here">
+            <input type="radio" id="gender_female" name="gender" value="Female" required>
+            <label for="gender_female">Female</label><br>
+
+            <input type="radio" id="gender_male" name="gender" value="Male" required>
+            <label for="gender_male">Male</label><br>
+
+            <input type="radio" id="gender_nonbinary" name="gender" value="Non-binary" required>
+            <label for="gender_nonbinary">Non-binary</label><br>
+
+            <input type="radio" id="gender_notsaying" name="gender" value="Prefernot_to_say" required>
+            <label for="gender_notsaying">Prefer not to say</label><br>
+
+            <input type="radio" id="gender_selfdescribe" name="gender" value="Selfdescribed" required>
+            <label for="gender_selfdescribe">Prefer to self-identify</label>
+
+            <input type="text11" id="gender_selfdescribe_text" placeholder="Enter your answer here">
      
     </div> 
         
@@ -55,7 +61,7 @@
    
    <div class="questionaire">
     <p>3. How old are you?</p>
-    <input type="text11" placeholder="Enter your answer here" required>
+    <input type="text11" id="age" placeholder="Enter your answer here" required>
     
    </div> 
    
@@ -63,7 +69,7 @@
 
    <div class="questionaire">
     <p>4. What is your field of study/ research?</p>
-    <input type="text11" placeholder="Enter your answer here" required>
+    <input type="text11" id ="field" placeholder="Enter your answer here" required>
     
    </div> 
     
@@ -72,16 +78,16 @@
    <div class="questionaire">
     <p>5. Self- describe your level of experience with biology.</p>
    
-        <input type="radio" id="html" name="never" value="HTML" required>
-        <label for="html">I am not interested in biology (I left the subject behind as soon as I could).</label><br>
-        <input type="radio" id="html" name="never" value="HTML" required>
-        <label for="html">I have a basic level of understanding (high school).</label><br>
-        <input type="radio" id="html" name="never" value="HTML" required>
-        <label for="html">I work on biology-related projects in my free time (hobby).</label><br> 
-        <input type="radio" id="html" name="never" value="HTML" required>
-        <label for="html">I study biology-related subjects (interest).</label><br>
-        <input type="radio" id="html" name="never" value="HTML" required>
-        <label for="html">I work on biology-related projects as part of my job (expert).</label><br>
+        <input type="radio" id="biology_1" name="biology" value="Not_interested" required>
+        <label for="biology_1">I am not interested in biology (I left the subject behind as soon as I could).</label><br>
+        <input type="radio" id="biology_2" name="biology" value="High_school" required>
+        <label for="biology_2">I have a basic level of understanding (high school).</label><br>
+        <input type="radio" id="biology_3" name="biology" value="Hobby" required>
+        <label for="biology_3">I work on biology-related projects in my free time (hobby).</label><br> 
+        <input type="radio" id="biology_4" name="biology" value="Study" required>
+        <label for="biology_4">I study biology-related subjects (interest).</label><br>
+        <input type="radio" id="biology_5" name="biology" value="Expert" required>
+        <label for="biology_5">I work on biology-related projects as part of my job (expert).</label><br>
         
       
    </div>   
@@ -91,11 +97,11 @@
    <div class="questionaire">
     <p>6. Self-describe your level of experience with data visualisations.</p>
    
-    <input type="checkbox" />I do not use visualisations.
+    <input type="checkbox" id="vis_1" name="vis_exp" value ="Not_using"/><label for="vis_1">I do not use visualisations.</label>
     <br>
-    <input type="checkbox" />I use illustrations, videos, and diagrams to help me learn.
+    <input type="checkbox" id="vis_2" name="vis_exp" value ="Consumer"/><label for="vis_2">I use illustrations, videos, and diagrams to help me learn.</label>
     <br>
-    <input type="checkbox" />I create visual aids (illustrations, videos, diagrams) to explain concepts to my peers.
+    <input type="checkbox" id="vis_3" name="vis_exp" value ="Producer"/><label for="vis_3">I create visual aids (illustrations, videos, diagrams) to explain concepts to my peers.</label>
     <br>
    </div>
 
@@ -110,17 +116,18 @@
         <a href="https://eu.enchroma.com/pages/colour-blind-test#multisite-redirected" target="_blank">Online colour blindness test</a>
         <br>
         <br>
-        <input type="text11" size="30" placeholder="Enter your answer here" required>  
+        <input type="text11" id="vision" size="30" placeholder="Enter your answer here" required>  
    </div>
 
    <hr>
 
    
+  </form>
 
    <div class="bottom">
      <h1>Thank you for completing the first part of the questionnaire with information about yourself. Please continue to the second part by clicking the button below.</h1>
-     <p><input type="submit" id="submit_infopage" name="send" onclick="validateForm()" value="Continue to the questionnaire"></p>
+     <p><input type="button" id="submit_infopage" name="send" onclick="validateForm()" value="Continue to the questionnaire"></p>
      <br>
   </div>
-</form>
+
 </body>
