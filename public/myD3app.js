@@ -5,6 +5,7 @@ function validateForm() {
  //   alert("Name must be filled out");
  //   return false;
  // }
+ window.location.href = "version_1.html";
 }
 
 

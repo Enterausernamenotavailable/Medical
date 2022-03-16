@@ -58,10 +58,6 @@ a:hover, a:active {
   background-color: grey;
 }
 
-
-<p>A link styled as a button:</p>
-<a href="default.asp" target="_blank">This is a link</a>
-
 .bottom {
   text-align: center;
   }
@@ -78,3 +74,19 @@ a:hover, a:active {
     font-size: 32px;
     width: 100%;
   }
+
+  #submit_infopage{
+    background-color: #009688;
+    color: #fff;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    border: 0;
+  }
+
+  #submit_infopage:hover, a:active {
+    background-color: grey;
+  }
+  
