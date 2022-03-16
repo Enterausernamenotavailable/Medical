@@ -1,3 +1,13 @@
+function validateForm() {
+  alert("All fields must be filled out")
+ // let x = document.forms["myForm"]["fname"].value;
+ // if (x == "") {
+ //   alert("Name must be filled out");
+ //   return false;
+ // }
+}
+
+
 let items = document.querySelectorAll("li.question7item");
 let current = null;
 
