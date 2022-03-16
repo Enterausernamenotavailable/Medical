@@ -6,7 +6,7 @@ function validateForm() {
   //NATIONALITY 
   if (document.getElementById('nationality').value.length == 0) {
     filled = false;
-  }else{
+  } else {
     answers += "Nationality: " + document.getElementById('nationality').value + ", ";
   }
 
@@ -38,14 +38,14 @@ function validateForm() {
   //AGE
   if (document.getElementById('age').value.length == 0) {
     filled = false;
-  }else{
+  } else {
     answers += "Age: " + document.getElementById('age').value + ", ";
   }
 
   //FIELD OF STUDY
   if (document.getElementById('field').value.length == 0) {
     filled = false;
-  }else{
+  } else {
     answers += "Field of study/work: " + document.getElementById('field').value + ", ";
   }
 
@@ -85,26 +85,60 @@ function validateForm() {
   //VISION
   if (document.getElementById('vision').value.length == 0) {
     filled = false;
-  }else{
-      answers += "Vision: " + document.getElementById('vision').value + ", ";
+  } else {
+    answers += "Vision: " + document.getElementById('vision').value + ", ";
   }
 
   var input_elems = document.getElementsByTagName('input');
-  for (i = input_elems.length-1; i >= 0; i--) {
+  for (i = input_elems.length - 1; i >= 0; i--) {
     input_elems[i].reportValidity();
   }
 
-  if (filled){
-    localStorage.setItem("medvis_study_pg1_answers", answers);
-    window.location.href = "version_1.html";
+  if (filled) {
+    sessionStorage.setItem("medvis_study_pg1_answers", answers);
+
+    var pageid = getRandomInt(5);
+    if (sessionStorage.getItem('medvis_study_page_id') !== null) {
+      pageid = parseInt(sessionStorage.getItem('medvis_study_page_id'));
+    }
+
+
+    var nextpage = "";
+    switch (pageid) {
+      case 0:
+        nextpage = "version_1.html";
+        break;
+      case 1:
+        nextpage = "version_2.html";
+        break;
+      case 2:
+        nextpage = "version_3.html";
+        break;
+      case 3:
+        nextpage = "version_4.html";
+        break;
+      case 4:
+        nextpage = "version_5.html";
+        break;
+    }
+
+    sessionStorage.setItem("medvis_study_page_id", pageid);
+
+    window.location.href = nextpage;
   }
 
 }
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 /*SECOND PAGE********************************************************************************************** */
 function validateFormPAge2() {
-  var firstPageAnswers = localStorage.getItem("medvis_study_pg1_answers");
-  localStorage.removeItem("medvis_study_pg1_answers");
-
+  var firstPageAnswers = sessionStorage.getItem("medvis_study_pg1_answers");
+  sessionStorage.removeItem("medvis_study_pg1_answers");
+  sessionStorage.removeItem("medvis_study_page_id");
 
 }
 
