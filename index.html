@@ -13,18 +13,24 @@
 
     <div class="beginning">
         <h1>The Study of Representations: Biological Processes</h1>
-        <p>Dear participant, thank you very much for taking part in our study investigating the representations of biological processes.</p>
+        <p>Dear participant, thank you very much for participating in our study investigating the representations of biological processes.</p>
         <br>
-        <p>The questionnaire consist of three parts. The first part takes place on this page and consists of collecting 
-          information about you. The second and third parts are located on the next page where you will be asked to view a biological
-        representation and asked to answer questions related to it.</p>
+        <p>The questionnaire consists of three parts. The first part takes place on this page and collects 
+          information about you. The second and third parts are located on the next page, where you will be asked to view a 
+        representation of a biological process and asked to answer questions related to it.</p>
     </div> 
   
     <hr>
 
+    <!-- /tato otazka ma input validation attribute. Vymazala som submit button input kedze ma byt az na konci pre vsetky -->
     <div class="questionnaire">
         <p>1. What is your nationality?</p>
-        <input type="text11" placeholder="Enter your answer here">
+        <form action="/action_page.php">
+          <label for="nationality"></label>
+          <input type="text" id="nationality" name="nationality" required>
+          
+        </form>
+        
     </div> 
 
     <hr>
@@ -68,9 +74,9 @@
     <p>5. Self- describe your level of experience with biology.</p>
       <form>
         <input type="radio" id="html" name="never" value="HTML">
-        <label for="html">I am not interested in biology at all (left the sbject behind as soon as I could).</label><br>
+        <label for="html">I am not interested in biology (I left the subject behind as soon as I could).</label><br>
         <input type="radio" id="html" name="never" value="HTML">
-        <label for="html">I have basic level of understanding (high-school).</label><br>
+        <label for="html">I have a basic level of understanding (high school).</label><br>
         <input type="radio" id="html" name="never" value="HTML">
         <label for="html">I work on biology-related projects in my free time (hobby).</label><br> 
         <input type="radio" id="html" name="never" value="HTML">
@@ -84,11 +90,11 @@
    <hr>
 
    <div class="questionaire">
-    <p>6. Self- describe your level of experience with data visualisations.</p>
+    <p>6. Self-describe your level of experience with data visualisations.</p>
    
     <input type="checkbox" />I do not use visualisations.
     <br>
-    <input type="checkbox" />I use illustrations, videos and diagrams to help me learn.
+    <input type="checkbox" />I use illustrations, videos, and diagrams to help me learn.
     <br>
     <input type="checkbox" />I create visual aids (illustrations, videos, diagrams) to explain concepts to my peers.
     <br>
@@ -97,9 +103,10 @@
    <hr>
    
    <div class="questionnaire">
-       <p>7. Please take the colour blindness test by clicking the button below. The link will take you to a third party website in a new tab. On the website,
-        press the 'Start the Test' button and answer the questions. You do not have to provide an email, just press the 'Skip to results' link.
-        Afterwards, enter your result from the website in this questionnaire in the space provided.</p>
+       <p>7. Please take the colour blindness test by clicking the button below. The link will take you to a third-party website in a new tab. 
+         Press the 'Start the Test' button on the website and answer the questions. 
+        You do not have to provide an email, just press the 'Skip to results' link.
+        Afterward, enter your result from the website in this questionnaire in the space provided.</p>
         <br>
         <a href="https://eu.enchroma.com/pages/colour-blind-test#multisite-redirected" target="_blank">Online colour blindness test</a>
         <br>
@@ -110,8 +117,8 @@
    <hr>
 
    <div class="bottom">
-       <h1>Thank you for completing the first part of the questionnaire with informtion about yourself. Please continue to the second part by clciking the button below.</h1>
-       <a href="version_1.html">Continue to the questionnaire</a>
+     <h1>Thank you for completing the first part of the questionnaire with information about yourself. Please continue to the second part by clicking the button below.</h1>
+     <a href="version_1.html">Continue to the questionnaire</a>
      <br>
   </div>
 </body>
