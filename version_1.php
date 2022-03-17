@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+	if(isset($_POST['submit'])){
+		
+	
+		$n = count(scandir("results/"));
+		
+		$myfile = fopen("results/$n.txt", "w");
+		
+		$txt = $_POST['previous_answers'] . ", Questionnaire: 1, " . $_POST['Q1'] . ", " . $_POST['Q2'] . ", " . $_POST['Q7'];
+
+		fwrite($myfile, $txt);
+	}
+?>
+
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -22,15 +40,16 @@
       <h2>And now, please answer the following questions:</h2> 
     </div>
 
+<form method="post">    
 <hr>    
     <div class="question">
       <p>1. In which part of the enzyme do the molecules fuse into ATP?</p>
-      <input type="text1" size="50" placeholder="Enter your answer here">
+      <input id="Q1" name="Q1" type="text1" size="50" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>2. Which two molecules react to form the ATP molecule?</p>
-      <input type="text2" size="50" placeholder="Enter your answer here">
+      <input id="Q2" name="Q2" type="text2" size="50" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
@@ -76,13 +95,13 @@
                 <td>  <ul id="items-list" class="moveable">
                   <li class="question7item">ATP release</li>
                   <li class="question7item">H+ motor activation</li>
-                  <li class="question7item">ADP and PO4 reaction</li>
+                  <li class="question7item">ADP and PO<sub>4</sub>: reaction</li>
                   <li class="question7item">H+ crossing membrane</li>
               </ul>
             </td>
               </tr>   
       </table>
-
+      <input type="text" id="Q7" name="Q7" value="ATP release, H+ motor activation, ADP and PO4 reaction, H+ crossing membrane" hidden>
     </div>
 
 <hr>
@@ -143,32 +162,30 @@
 <hr>
     <div class="question">
       <p>13. How often did you look back at the representation to answer the follow-up questions?</p>
-      <form>
-        <input type="radio" id="html" name="never" value="HTML">
+
+        <input type="radio" id="html" name="never" value="Never">
         <label for="html">Never</label><br>
-        <input type="radio" id="html" name="never" value="HTML">
+        <input type="radio" id="html" name="never" value="1-5">
         <label for="html">1-5 times</label><br>
-        <input type="radio" id="html" name="never" value="HTML">
+        <input type="radio" id="html" name="never" value="6-10">
         <label for="html">6-10 times</label><br>
-        <input type="radio" id="html" name="never" value="HTML">
+        <input type="radio" id="html" name="never" value="More than 10">
         <label for="html">More than ten times</label><br>
-      </form>
+      
     </div>
 <hr>
-<input type="text" id="previous_answers" name="answers" value="" hidden>
+<input type="text" id="previous_answers" name="previous_answers" value="" hidden>
 
+<input class="final_button"  type="submit" name="submit" value="Submit all" onclick="validateFormPAge2()>
+<br>
     <div class="bottom_container">
-      <br>
-       <div class="final_button">
-         <br>
-         <button class="w3-button w3-block w3-teal" onclick="validateFormPAge2()">Submit all</button>
-        </div>
       <p>Thank you very much for your participation. Please <b>do not discuss</b> the contents of the survey 
         with other people as it may influence the final results. If you have any questions or would be 
         interested in the results of the study, please get in touch with <b>xpokojna@fi.muni.cz</b></p>
 
     </div>
 
-    
+    </form>
 
   </body>
+</html>

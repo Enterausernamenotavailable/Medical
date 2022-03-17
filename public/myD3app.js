@@ -99,14 +99,14 @@ function validateForm() {
 
     var pageid = getRandomInt(1);//TODO Change to 5
     if (sessionStorage.getItem('medvis_study_page_id') !== null) {
-    //  pageid = parseInt(sessionStorage.getItem('medvis_study_page_id'));
+      //  pageid = parseInt(sessionStorage.getItem('medvis_study_page_id'));
     }
 
 
     var nextpage = "";
     switch (pageid) {
       case 0:
-        nextpage = "version_1.html";
+        nextpage = "version_1.php";
         break;
       case 1:
         nextpage = "version_2.html";
@@ -138,13 +138,17 @@ function getRandomInt(max) {
 function fillAnswers() {
   var firstPageAnswers = sessionStorage.getItem("medvis_study_pg1_answers");
   document.getElementById('previous_answers').value = firstPageAnswers;
-  sessionStorage.removeItem("medvis_study_pg1_answers");
+
 
 
 }
 
 function validateFormPAge2() {
   sessionStorage.removeItem("medvis_study_page_id");
+  sessionStorage.removeItem("medvis_study_pg1_answers");
+
+
+  
 
 }
 
@@ -219,6 +223,18 @@ items.forEach(item => {
       }
     }
     items = document.querySelectorAll("li.question7item");
+
+    //hack to be able to get data from the form
+    var results = "";
+    for (let it = 0; it < items.length; it++) {
+      results += items[it].innerHTML;
+      if (it < (items.length - 1)) {
+        results += ", "
+      }
+    }
+
+    document.getElementById('Q7').value = results;
+
   };
 
 })
