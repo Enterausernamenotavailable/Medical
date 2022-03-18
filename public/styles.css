@@ -75,6 +75,21 @@ a:hover, a:active {
     width: 100%;
   }
 
+  #submit_final_button{
+    background-color: #009688;
+    color: #fff;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    border: 0;
+  }
+
+  #submit_final_button:hover, a:active {
+    background-color: grey;
+  }
+
   #submit_infopage{
     background-color: #009688;
     color: #fff;

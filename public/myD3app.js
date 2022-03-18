@@ -7,7 +7,7 @@ function validateForm() {
   if (document.getElementById('nationality').value.length == 0) {
     filled = false;
   } else {
-    answers += "Nationality: " + document.getElementById('nationality').value + ", ";
+    answers += "Nationality: " + document.getElementById('nationality').value + "; ";
   }
 
   //GENDER 
@@ -21,11 +21,11 @@ function validateForm() {
           document.getElementById('gender_selfdescribe_text').setCustomValidity('Please fill out this field.');
           document.getElementById('gender_selfdescribe_text').reportValidity();
         } else {
-          answers += "Gender: Selfidentified," + document.getElementById('gender_selfdescribe_text').value + ", ";
+          answers += "Gender: Selfidentified " + document.getElementById('gender_selfdescribe_text').value + "; ";
           gender_filled = true;
         }
       } else {
-        answers += "Gender: " + ele[i].value + ", ";
+        answers += "Gender: " + ele[i].value + "; ";
         gender_filled = true;
       }
     }
@@ -39,14 +39,14 @@ function validateForm() {
   if (document.getElementById('age').value.length == 0) {
     filled = false;
   } else {
-    answers += "Age: " + document.getElementById('age').value + ", ";
+    answers += "Age: " + document.getElementById('age').value + "; ";
   }
 
   //FIELD OF STUDY
   if (document.getElementById('field').value.length == 0) {
     filled = false;
   } else {
-    answers += "Field of study/work: " + document.getElementById('field').value + ", ";
+    answers += "Field of study/work: " + document.getElementById('field').value + "; ";
   }
 
   //BIOLOGY EXPERIENCE
@@ -54,7 +54,7 @@ function validateForm() {
   var ele = document.getElementsByName('biology');
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
-      answers += "Biology experience: " + ele[i].value + ", ";
+      answers += "Biology experience: " + ele[i].value + "; ";
       biology_filled = true;
     }
   }
@@ -70,7 +70,12 @@ function validateForm() {
   answers += "Visualization experience: ";
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
-      answers += ele[i].value + ", ";
+      answers += ele[i].value;
+      if (i == ele.length - 1) {
+        answers += "; ";
+      } else {
+        answers += ", ";
+      }
       vis_filled = true;
       document.getElementById('vis_1').setCustomValidity('');
     }
@@ -86,7 +91,7 @@ function validateForm() {
   if (document.getElementById('vision').value.length == 0) {
     filled = false;
   } else {
-    answers += "Vision: " + document.getElementById('vision').value + ", ";
+    answers += "Vision: " + document.getElementById('vision').value + "; ";
   }
 
   var input_elems = document.getElementsByTagName('input');
@@ -95,7 +100,7 @@ function validateForm() {
   }
 
   if (filled) {
-    sessionStorage.setItem("medvis_study_pg1_answers", answers);
+    
 
     var pageid = getRandomInt(1);//TODO Change to 5
     if (sessionStorage.getItem('medvis_study_page_id') !== null) {
@@ -106,7 +111,7 @@ function validateForm() {
     var nextpage = "";
     switch (pageid) {
       case 0:
-        nextpage = "version_1.php";
+        nextpage = "version_1.html";
         break;
       case 1:
         nextpage = "version_2.html";
@@ -122,6 +127,9 @@ function validateForm() {
         break;
     }
 
+    answers+= "Form version: " + nextpage + "; ";
+
+    sessionStorage.setItem("medvis_study_pg1_answers", answers);
     sessionStorage.setItem("medvis_study_page_id", pageid);
 
     window.location.href = nextpage;
@@ -143,14 +151,60 @@ function fillAnswers() {
 
 }
 
-function validateFormPAge2() {
+function validateFormPage2() {
+
+  var filled = true;
+
+  //Q8
+  document.getElementById('Q8_Other_textfield').setCustomValidity('');
+  document.getElementById('Q8_Simplistic').setCustomValidity('');
+
+  var Q8_filled = false;
+  var Q8_selected_other = false;
+  var ele = document.getElementsByName('Q8[]');
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+      if (ele[i].id == "Q8_Other") {
+        Q8_selected_other = true;
+        if (document.getElementById('Q8_Other_textfield').value.length == 0) {
+          document.getElementById('Q8_Other_textfield').setCustomValidity('Please fill out this field.');
+          document.getElementById('Q8_Other_textfield').reportValidity();
+        } else {
+          Q8_filled = true;
+        }
+      } else {
+        Q8_filled = true;
+      }
+    }
+  }
+
+  if (Q8_filled == false) {
+    filled = false;
+    if (Q8_selected_other != true) {
+      document.getElementById('Q8_Simplistic').setCustomValidity('Please select at least one of these options.');
+      document.getElementById('Q8_Simplistic').reportValidity();
+    }
+    return filled;
+  }
+
   sessionStorage.removeItem("medvis_study_page_id");
   sessionStorage.removeItem("medvis_study_pg1_answers");
-
-
-  
-
+  return filled;
 }
+
+function clearOtherField() {
+  if (!document.getElementById('Q8_Other').checked) {
+    document.getElementById('Q8_Other_textfield').value = "";
+  }
+}
+
+
+function clearCustomValidators() {
+  document.getElementById('Q8_Other_textfield').setCustomValidity('');
+  document.getElementById('Q8_Simplistic').setCustomValidity('');
+}
+
+
 
 
 

@@ -1,22 +1,3 @@
-<?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
-	if(isset($_POST['submit'])){
-		
-	
-		$n = count(scandir("results/"));
-		
-		$myfile = fopen("results/$n.txt", "w");
-		
-		$txt = $_POST['previous_answers'] . ", Questionnaire: 1, " . $_POST['Q1'] . ", " . $_POST['Q2'] . ", " . $_POST['Q7'];
-
-		fwrite($myfile, $txt);
-	}
-?>
-
-
 <html>
   <head>
     <meta charset="utf-8">
@@ -40,7 +21,7 @@
       <h2>And now, please answer the following questions:</h2> 
     </div>
 
-<form method="post">    
+<form method="post" action="thanks.php" onsubmit="return validateFormPage2();">    
 <hr>    
     <div class="question">
       <p>1. In which part of the enzyme do the molecules fuse into ATP?</p>
@@ -54,22 +35,22 @@
 <hr>
     <div class="question">
       <p>3. Which part of the cell does the ATP synthesis occur in?</p>
-      <input type="text3" size="50" placeholder="Enter your answer here">
+      <input id="Q3" name="Q3" type="text3" size="50" placeholder="Enter your answer here" required> 
     </div>
 <hr>
     <div class="question">
       <p>4. What role do the H+ molecules play in ATP synthesis?</p>
-      <input type="text4" size="50" placeholder="Enter your answer here">
+      <input id="Q4" name="Q4" type="text4" size="50" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>5. How do the H+ molecules cross the membrane?</p>
-      <input type="text5" size="50" placeholder="Enter your answer here">
+      <input id="Q5" name="Q5" type="text5" size="50" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>6. Which side of the membrane does the ATP synthesis reaction occur?</p>
-      <input type="text6" size="50" placeholder="Enter your answer here:"> 
+      <input id="Q6" name="Q6" type="text6" size="50" placeholder="Enter your answer here:" required> 
     </div>
 <hr>
     <div class="question">
@@ -108,81 +89,99 @@
     <div class="question">
       <p>8. Choose the options that best describe the representation of the ATP synthesis process. You can choose several options:</p>
       
-      <input type="checkbox" /> Simplistic
+      <input type="checkbox" id="Q8_Simplistic" name="Q8[]" value="Simplistic"/>
+      <label for="Q8_Simplistic">Simplistic</label>
       <br>
-      <input type="checkbox" /> Clear
+      <input type="checkbox" id="Q8_Clear" name="Q8[]" value="Clear"/> 
+      <label for="Q8_Clear">Clear</label>
       <br>
-      <input type="checkbox" /> Detailed
+      <input type="checkbox" id="Q8_Detailed" name="Q8[]" value="Detailed"/> 
+      <label for="Q8_Detailed">Detailed</label>
       <br>
-      <input type="checkbox" /> Excessive
+      <input type="checkbox" id="Q8_Excessive" name="Q8[]" value="Excessive"/> 
+      <label for="Q8_Excessive">Excessive</label>
       <br>
-      <input type="checkbox" /> Informative
+      <input type="checkbox" id="Q8_Informative" name="Q8[]" value="Informative"/> 
+      <label for="Q8_Informative">Informative</label>
       <br>
-      <input type="checkbox" /> Confusing
+      <input type="checkbox" id="Q8_Confusing" name="Q8[]" value="Confusing"/> 
+      <label for="Q8_Confusing">Confusing</label>
       <br>
-      <input type="checkbox" /> Pretty
+      <input type="checkbox" id="Q8_Pretty" name="Q8[]" value="Pretty"/> 
+      <label for="Q8_Pretty">Pretty</label>
       <br>
-      <input type="checkbox" /> Misleading
+      <input type="checkbox" id="Q8_Misleading" name="Q8[]" value="Misleading"/> 
+      <label for="Q8_Misleading">Misleading</label>
       <br>
-      <input type="checkbox" /> Distracting
+      <input type="checkbox" id="Q8_Distracting" name="Q8[]" value="Distracting"/> 
+      <label for="Q8_Distracting">Distracting</label>
       <br>
-      <input type="checkbox" /> Easy to read
+      <input type="checkbox" id="Q8_Easy_to_read" name="Q8[]" value="Easy_to_read"/> 
+      <label for="Q8_Easy_to_read">Easy to read</label>
       <br>
-      <input type="checkbox" /> Inaccurate
+      <input type="checkbox" id="Q8_Inaccurate" name="Q8[]" value="Inaccurate"/> 
+      <label for="Q8_Inaccurate">Inaccurate</label>
       <br>
-      <input type="checkbox" /> Precise 
+      <input type="checkbox" id="Q8_Precise" name="Q8[]" value="Precise"/> 
+      <label for="Q8_Precise">Precise</label>
       <br>
-      <input type="checkbox" /> Accurate
+      <input type="checkbox" id="Q8_Accurate" name="Q8[]" value="Accurate"/> 
+      <label for="Q8_Accurate">Accurate</label>
       <br>
-      <input type="checkbox" /> Visually unappealing
+      <input type="checkbox" id="Q8_Unappealing" name="Q8[]" value="Unappealing"/> 
+      <label for="Q8_Unappealing">Visually unappealing</label>
       <br>
-      <input type="checkbox" /> Other
-      <input type="text6" size="50" placeholder="Please specify here">
+      <input type="checkbox" id="Q8_Other" name="Q8[]" value="Other" onchange="clearOtherField()"/> 
+      <label for="Q8_Other">Other</label>
+
+      <input type="text6"  id="Q8_Other_textfield" name="Q8_Other_textfield" size="50" placeholder="Please specify here">
     </div>
 <hr>
     <div class="question">
       <p>9. In your own words, write at least three things that you liked the most about the representation:</p>
-      <input type="text9" size="200" placeholder="Enter your answer here">
+      <input type="text9" id="Q9" name="Q9" size="200" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>10. In your own words, write at least three things that you did not like about the representation:</p>
-      <input type="text10" size="200" placeholder="Enter your answer here">
+      <input type="text10" id="Q10" name="Q10" size="200" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>11. How well did the representation communicate the order of events in the ATP synthesis process?</p>
-      <input type="text11" size="200" placeholder="Enter your answer here">
+      <input type="text11" id="Q11" name="Q11" size="200" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>12. How well did you understand the movements happening within the ATP synthesis process?</p>
-      <input type="text12" size="200" placeholder="Enter your answer here">
+      <input type="text12" id="Q12" name="Q12" size="200" placeholder="Enter your answer here" required>
     </div>
 <hr>
     <div class="question">
       <p>13. How often did you look back at the representation to answer the follow-up questions?</p>
 
-        <input type="radio" id="html" name="never" value="Never">
-        <label for="html">Never</label><br>
-        <input type="radio" id="html" name="never" value="1-5">
-        <label for="html">1-5 times</label><br>
-        <input type="radio" id="html" name="never" value="6-10">
-        <label for="html">6-10 times</label><br>
-        <input type="radio" id="html" name="never" value="More than 10">
-        <label for="html">More than ten times</label><br>
+        <input type="radio" id="Never" name="Q13" value="Never" required>
+        <label for="Never">Never</label><br>
+        <input type="radio" id="1-5" name="Q13" value="1-5" required>
+        <label for="1-5">1-5 times</label><br>
+        <input type="radio" id="6-10" name="Q13" value="6-10" required>
+        <label for="6-10">6-10 times</label><br>
+        <input type="radio" id="More" name="Q13" value="More than 10" required>
+        <label for="More">More than ten times</label><br>
       
     </div>
 <hr>
 <input type="text" id="previous_answers" name="previous_answers" value="" hidden>
-
-<input class="final_button"  type="submit" name="submit" value="Submit all" onclick="validateFormPAge2()>
 <br>
+<div class="bottom">
+<input class="final_button"  id="submit_final_button" type="submit" name="submit" value="Submit all" onclick="clearCustomValidators()">
+</div>
+
+
     <div class="bottom_container">
       <p>Thank you very much for your participation. Please <b>do not discuss</b> the contents of the survey 
         with other people as it may influence the final results. If you have any questions or would be 
         interested in the results of the study, please get in touch with <b>xpokojna@fi.muni.cz</b></p>
-
     </div>
 
     </form>
